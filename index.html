@@ -11,6 +11,7 @@
 <meta property="og:description" content="Dé liberale jongerenorganisatie van Tilburg en omstreken! 💙 Meld je aan voor onze activiteiten.">
 <meta property="og:image" content="https://jovdhvb.nl/og.jpg">
 <link rel="icon" href="avatar.jpg">
+<script>document.documentElement.className+=" js"</script>
 <style>
 :root{--blue:#0071cd;--blue-d:#0064ba;--navy:#063c7c;--ink:#003384;--cream:#f8eddb;--paper:#fffaf0;--red:#ec494a;--yellow:#ffe073;--line:#ffffff2e;--muted:#d3e4f7}
 *{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -136,137 +137,380 @@ footer p{margin:0}footer a{color:#fff}
 }
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 
-/* ---------- startpagina ---------- */
-.stage{min-height:auto}
-.stripes{position:absolute;top:0;right:0;width:18%;height:100%;z-index:-1;background:repeating-linear-gradient(-14deg,var(--cream) 0 46px,var(--red) 46px 82px);clip-path:polygon(30% 0,100% 0,100% 100%,0 100%)}
-.col{max-width:760px;margin:0 auto;padding:0 20px}
-.prof{text-align:center;padding-top:46px;padding-bottom:58px}
-.ava{width:118px;height:118px;border-radius:50%;margin:0 auto;border:5px solid var(--cream);box-shadow:7px 7px 0 var(--ink);object-fit:cover}
-.prof h1{font-size:clamp(34px,6vw,58px);margin:22px 0 4px}
-.prof h1 .torn{padding:.04em .3em .08em}
-.handle{font-weight:bold;color:var(--yellow);letter-spacing:.04em;margin:14px 0 6px}
-.bio{font-size:18px;color:#eaf3fc;margin:0 auto;max-width:460px}
-.soc{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
-.soc a{width:48px;height:48px;border-radius:50%;background:#ffffff1f;border:2px solid #ffffff40;display:flex;align-items:center;justify-content:center;transition:.15s}
-.soc a:hover{background:var(--cream);color:var(--ink);transform:translateY(-3px) rotate(-6deg)}
+/* =========================================================
+   Startpagina "De Plakmuur": een JOVD-banner om in te scrollen
+   ========================================================= */
+:root{--disp:'Arial Black',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;--rd:#c22b2c;
+  --ruit:conic-gradient(var(--red) 25%,var(--cream) 0 50%,var(--red) 0 75%,var(--cream) 0);
+  --rip:polygon(0 55%,4% 15%,9% 60%,14% 25%,19% 65%,25% 18%,31% 55%,36% 8%,42% 50%,48% 22%,54% 62%,60% 12%,66% 52%,72% 26%,78% 64%,84% 16%,90% 54%,95% 22%,100% 45%,100% 100%,0 100%)}
+html,body{overflow-x:clip}
+h1,h2,h3,.disp{font-family:var(--disp);font-weight:900}
+.col{max-width:1120px;margin:0 auto;padding:0 20px}
+body{background:var(--navy) radial-gradient(#ffffff0d 1px,transparent 1.3px) 0 0/22px 22px}
+a{-webkit-tap-highlight-color:transparent}
+
+/* ---------- hero ---------- */
+.stage{padding-bottom:16px}
+.ruit{position:absolute;top:0;right:0;width:40%;height:205px;z-index:-1;background:var(--ruit) 0 0/40px 40px;clip-path:polygon(26% 0,100% 0,100% 82%,0 100%)}
+.hero{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr;grid-template-areas:"brand pic" "handle pic" "title title" "bio bio" "soc soc";align-items:start;padding-top:20px;padding-bottom:22px;column-gap:16px}
+.handle{grid-area:handle;margin:12px 0 0;font-weight:bold;font-size:14.5px;letter-spacing:.03em;color:#fff}
+.handle i{font-style:normal;color:var(--yellow)}
+.brand{grid-area:brand;color:#fff;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-top:4px}
+.brand svg{width:78px;height:auto}
+.brand small{display:none;font-size:12px;font-weight:bold;letter-spacing:.14em;text-transform:uppercase;line-height:1.35;opacity:.92}
+.pol{grid-area:pic;position:relative;justify-self:end;margin:6px 4px 0 0;width:118px;background:var(--cream);outline:3px solid var(--ink);padding:7px 7px 22px;box-shadow:6px 6px 0 var(--ink);transform:rotate(5deg);animation:drop .7s .15s cubic-bezier(.2,1.5,.4,1) backwards}
+.pol img{width:100%;aspect-ratio:1;object-fit:cover}
+.pol:before{content:'';position:absolute;top:-10px;left:50%;width:58px;height:20px;margin-left:-29px;background:#ffe073cc;transform:rotate(-7deg);box-shadow:0 1px 0 #0001}
+.seal55{position:absolute;left:-26px;bottom:-14px;width:58px;height:58px;border-radius:50%;background:var(--rd);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--disp);font-weight:900;font-size:22px;line-height:.9;transform:rotate(-12deg);box-shadow:3px 3px 0 var(--ink);text-align:center}
+.seal55 small{font-family:Arial,sans-serif;font-weight:bold;font-size:10px;letter-spacing:.1em;margin-top:2px}
+.ttl{grid-area:title;font-size:clamp(40px,12.2vw,92px);line-height:.95;text-transform:uppercase;margin:-30px 0 0;position:relative}
+.ttl>span{display:block;width:max-content;max-width:100%}
+.ttl .l1{letter-spacing:-.01em;animation:plof .5s .05s cubic-bezier(.2,1.4,.4,1) backwards}
+.ttl .torn{padding:.06em .28em .1em;animation:plof .5s .17s cubic-bezier(.2,1.4,.4,1) backwards}
+.ttl .l3{background:var(--yellow);transform:rotate(1.4deg);margin:.04em 0 0 .3em;animation-delay:.29s}
+.ttl .star{position:absolute;right:2%;top:-.1em;width:.62em;height:.62em;color:var(--yellow);animation:spin 14s linear infinite}
+.bio{grid-area:bio;font-size:17.5px;line-height:1.4;margin:18px 0 0;max-width:30em}
+.soc{grid-area:soc;display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.hero .soc{display:none}
+.follow .soc{margin-top:0;gap:14px}
+.follow p{margin:16px 0 0;color:var(--muted)}
+.follow p b{color:#fff}
+.soc a{width:48px;height:48px;background:var(--cream);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:4px 4px 0 var(--ink);transform:rotate(var(--r,0));transition:transform .15s,box-shadow .15s}
+.soc a:nth-child(1){--r:-4deg}.soc a:nth-child(2){--r:3deg}.soc a:nth-child(3){--r:-2deg}.soc a:nth-child(4){--r:4deg}.soc a:nth-child(5){--r:-3deg}
+.soc a:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
 .soc svg{width:22px;height:22px;fill:currentColor}
-.sec{padding-top:46px}
-.sec>h2{font-size:13px;font-family:Arial,sans-serif;font-weight:bold;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);display:flex;align-items:center;gap:12px;margin:0 0 18px}
-.sec>h2:after{content:'';flex:1;height:2px;background:var(--line)}
+.rip{position:absolute;left:0;right:0;bottom:-1px;height:24px;background:var(--navy);clip-path:var(--rip)}
 
-/* uitgelichte aanmeldkaarten */
-.ev{display:grid;grid-template-columns:150px 1fr auto;align-items:stretch;background:var(--cream);color:var(--ink);text-decoration:none;box-shadow:8px 8px 0 var(--ink);margin-bottom:22px;transition:transform .15s,box-shadow .15s;position:relative;transform:rotate(var(--r,0deg))}
-.ev:nth-of-type(2n){--r:.5deg}.ev:nth-of-type(2n+1){--r:-.4deg}
-.ev:hover{transform:translate(-3px,-3px) rotate(0);box-shadow:11px 11px 0 var(--ink)}
-.ev .th{position:relative;overflow:hidden;background:var(--blue)}
-.ev .th img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.ev .tx{padding:16px 18px 16px}
-.ev .when{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
-.ev .days{background:var(--ink);color:#fff;padding:2px 7px;letter-spacing:.06em}
-.ev h3{font-size:clamp(19px,2.6vw,25px);margin:7px 0 5px;line-height:1.08}
-.ev p{margin:0;font-size:14.5px;color:#3a5583}
-.ev .go2{display:flex;align-items:center;padding:0 20px;background:var(--red);color:#fff;font-family:'Arial Black',Arial,sans-serif;font-size:15px;white-space:nowrap;gap:8px}
-.ev .go2 span{transition:transform .15s}.ev:hover .go2 span{transform:translateX(4px)}
-.th-reis{display:flex;align-items:center;justify-content:center;background:#061a3b!important;gap:3px}
-.th-reis i{font-style:normal;width:30px;height:44px;background:linear-gradient(180deg,#1b2c4a 0 49%,#0c1b33 51%);border-radius:3px;color:#ffd166;font-family:'Arial Black',Arial,sans-serif;font-size:24px;display:flex;align-items:center;justify-content:center;position:relative}
-.th-reis i:after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:#000a}
-.th-das{background:#0f3372!important}
-.th-das img{object-fit:contain!important;padding:8px;transform:rotate(-8deg)}
-.italy{display:inline-flex;align-items:center;gap:5px;background:#fff;border:1px solid #00338433;padding:1px 6px;letter-spacing:.04em;color:var(--ink)}
-.italy b{display:inline-flex;width:15px;height:10px;background:linear-gradient(90deg,#009246 33%,#fff 0 66%,#ce2b37 0);border:1px solid #0002}
-.ev.past{display:none}
+/* ---------- sectiekoppen ---------- */
+.sec{padding-top:54px}
+.sec>h2{display:flex;align-items:center;gap:14px;margin:0 0 26px;font-size:clamp(27px,7.6vw,42px);line-height:1}
+.sec>h2 .torn{padding:.1em .34em .14em;white-space:nowrap}
+.sec>h2 .slash{flex:none;transform:scale(.8)}
 
-/* gewone links */
-.lk{display:grid;grid-template-columns:56px 1fr 22px;gap:14px;align-items:center;text-decoration:none;background:#ffffff14;border:2px solid #ffffff2b;padding:10px 16px 10px 10px;margin-bottom:12px;transition:.15s}
-.lk:hover{background:var(--cream);color:var(--ink);border-color:var(--cream);transform:translateX(4px)}
-.lk img,.lk .ic{width:56px;height:56px;object-fit:cover;flex:none}
-.lk .ic{display:flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--ink);font-size:26px}
-.lk b{display:block;font-size:16.5px;line-height:1.25}
-.lk small{display:block;font-size:13px;opacity:.75;margin-top:2px}
-.lk .ar{font-size:20px;opacity:.6}
-.lk.big{background:var(--yellow);color:var(--ink);border-color:var(--yellow);box-shadow:6px 6px 0 var(--ink)}
-.lk.big:hover{background:#fff}
-.lk.big .ic{background:var(--ink);color:#fff}
-footer.end{display:block;text-align:center;padding:54px 20px 40px;color:var(--muted);font-size:13px}
-.end svg{width:84px;color:#fff;margin:0 auto 12px;display:block;opacity:.9}
-.end a{color:#fff}
+#aanmelden{padding-top:0;margin-top:-22px;position:relative;z-index:2}
+#aanmelden>h2{margin-bottom:22px}
 
-@media (max-width:620px){
-  .ev{grid-template-columns:96px 1fr}
-  .ev .go2{grid-column:1/-1;padding:11px 18px;justify-content:space-between}
-  .ev .tx{padding:13px 14px}
-  .stripes{width:14%;opacity:.5}
-  .th-reis i{width:19px;height:30px;font-size:15px}
+/* ---------- aanmeldkaarten ---------- */
+.evs{display:grid;gap:24px}
+.ev{display:grid;grid-template-columns:104px minmax(0,1fr);grid-template-areas:"pic tx" "bar bar";background:var(--cream);color:var(--ink);text-decoration:none;box-shadow:7px 7px 0 var(--ink);position:relative;transform:rotate(var(--r,0deg));transition:transform .15s,box-shadow .15s}
+.ev:nth-child(2n){--r:.6deg}.ev:nth-child(2n+1){--r:-.5deg}
+.ev:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink)}
+.ev .pic{grid-area:pic;position:relative;overflow:hidden;background:var(--blue);min-height:104px}
+.ev .pic>img{position:absolute;inset:0 0 auto;width:100%;height:auto;aspect-ratio:1;object-fit:cover;object-position:60% 0}
+.ev .pat{position:absolute;inset:0}
+.ev .tx{grid-area:tx;padding:14px 15px 15px;min-width:0}
+.ev .when{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:12px;font-weight:bold;letter-spacing:.09em;text-transform:uppercase;color:var(--rd)}
+.ev .days{background:var(--ink);color:#fff;padding:2px 7px;letter-spacing:.05em}
+.ev .days:empty,.dsk:empty{display:none}
+.ev h3{font-size:19px;line-height:1.1;margin:7px 0 6px;letter-spacing:-.015em;text-wrap:balance}
+.ev p{margin:0;font-size:14.5px;line-height:1.4;color:#33507f}
+.ev .bar{grid-area:bar;display:flex;align-items:center;justify-content:space-between;min-height:50px;padding:0 18px;background:var(--red);color:#fff;font-family:var(--disp);font-weight:900;font-size:19px}
+.ev .bar i{font-style:normal;transition:transform .15s}
+.dt{position:absolute;left:6px;bottom:7px;z-index:2;background:var(--yellow);color:var(--ink);font-family:var(--disp);font-weight:900;font-size:12px;line-height:1;padding:5px 6px 4px;transform:rotate(-4deg);box-shadow:2px 2px 0 var(--ink);text-transform:uppercase;white-space:nowrap}
+.dsk{display:none}
+.flip{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:3px;background:#061a3b}
+.flip i{font-style:normal;width:24px;height:36px;background:linear-gradient(180deg,#1b2c4a 0 49%,#0c1b33 51%);border-radius:3px;color:var(--yellow);font-family:var(--disp);font-weight:900;font-size:21px;display:flex;align-items:center;justify-content:center;position:relative}
+.flip i:after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:#000a}
+.ev-das .pic{background:var(--yellow) repeating-linear-gradient(-24deg,#00338414 0 3px,transparent 3px 26px)}
+.ev-das .pic>img{inset:auto;left:50%;top:50%;width:auto;height:min(150%,230px);max-width:none;aspect-ratio:auto;object-fit:contain;transform:translate(-50%,-50%) rotate(-28deg)}
+.italy{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--ink);padding:2px 7px;letter-spacing:.05em;color:var(--ink)}
+.italy b{display:inline-flex;width:16px;height:11px;background:linear-gradient(90deg,#009246 33.3%,#fff 0 66.6%,#ce2b37 0);box-shadow:0 0 0 1px #0003}
+
+/* het affiche: de eerstvolgende activiteit */
+.ev.next{display:block;transform:rotate(-.6deg);box-shadow:9px 9px 0 var(--ink)}
+.ev.next:active{transform:translate(4px,4px) rotate(-.6deg);box-shadow:3px 3px 0 var(--ink)}
+.ev.next .pic{height:160px;background:var(--blue) radial-gradient(#ffffff26 1px,transparent 1.3px) 0 0/18px 18px}
+.ev.next .pat{inset:0 0 0 auto;width:34%;clip-path:polygon(30% 0,100% 0,100% 100%,0 100%)}
+.pat-strepen{background:repeating-linear-gradient(-14deg,var(--cream) 0 16px,var(--red) 16px 30px)}
+.pat-ruit{background:var(--ruit) 0 0/36px 36px}
+.ev.next .pic>img{position:absolute;inset:auto;left:8%;top:12px;width:40%;height:auto;max-width:300px;aspect-ratio:1;object-fit:cover;padding:8px 8px 8px;background:var(--cream);box-shadow:7px 7px 0 #00338499;transform:rotate(-3deg)}
+.ev.next .pic>img[src^="huddy"]{padding:0;background:none}
+.ev.next .dt{left:14px;top:14px;bottom:auto;font-size:17px;padding:7px 9px 5px}
+.ev.next .dsk{display:flex;position:absolute;right:16px;top:14px;z-index:3;width:76px;height:76px;border-radius:50%;background:var(--ink);color:#fff;flex-direction:column;align-items:center;justify-content:center;font-size:12px;font-weight:bold;letter-spacing:.14em;text-transform:uppercase;transform:rotate(9deg);box-shadow:5px 5px 0 #0006;border:3px dashed #ffe073a0;outline:4px solid var(--ink);animation:stamp .45s .55s cubic-bezier(.2,1.6,.4,1) backwards}
+.ev.next .dsk b{color:var(--yellow);font-family:var(--disp);font-weight:900;font-size:30px;line-height:.9;letter-spacing:-.02em}
+.ev.next .dsk b.sm{font-size:14px;letter-spacing:0}
+.ev.next .bar i{animation:nudge 1.8s 1.2s ease-in-out infinite}
+.ev.next .days{display:none}
+.ev.next .tx{padding:18px 20px 20px}
+.ev.next h3{font-size:clamp(23px,6.4vw,31px);line-height:1.06;margin:9px 0 9px}
+.ev.next p{font-size:15.5px}
+.ev.next .bar{min-height:58px;font-size:20px;padding:0 20px}
+.ev.next .flip{gap:6px;padding:0}
+.ev.next .flip i{width:46px;height:68px;font-size:40px;border-radius:5px}
+.ev-das.next .dt{transform:rotate(-6deg) scale(1.25);transform-origin:0 0}
+.ev-das.next .pic>img{left:50%;top:50%;width:auto;height:190%;max-height:340px;max-width:none;aspect-ratio:auto;object-fit:contain;padding:0;background:none;box-shadow:none;transform:translate(-50%,-50%) rotate(-62deg)}
+.ev-das.next .pat{display:none}
+
+/* ---------- word lid ---------- */
+.lid{position:relative;margin-top:76px;padding:74px 0 70px;color:var(--ink);isolation:isolate}
+.lid:before{content:'';position:absolute;inset:0;z-index:-1;background:var(--yellow);clip-path:polygon(0 34px,100% 0,100% calc(100% - 34px),0 100%)}
+.lid .col{display:grid;gap:30px}
+.lid .kick{display:inline-block;background:var(--ink);color:#fff;font-size:12px;font-weight:bold;letter-spacing:.16em;text-transform:uppercase;padding:5px 9px;transform:rotate(-2deg)}
+.lid h2{font-size:clamp(52px,16vw,112px);line-height:.86;margin:14px 0 18px;text-transform:uppercase;letter-spacing:-.035em}
+.lid h2 span{color:var(--red)}
+.perks{display:flex;flex-wrap:wrap;gap:9px 8px;margin:0 0 26px;padding:0;list-style:none}
+.perks li{border:2px solid var(--ink);font-weight:bold;font-size:14.5px;padding:5px 10px 4px;transform:rotate(var(--r,0))}
+.perks li:nth-child(1){--r:-2deg}.perks li:nth-child(2){--r:1.5deg}.perks li:nth-child(3){--r:-1deg}.perks li:nth-child(4){--r:2deg}
+.join{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:420px;min-height:60px;padding:0 22px;background:var(--red);color:#fff;text-decoration:none;font-family:var(--disp);font-weight:900;font-size:21px;box-shadow:7px 7px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.join:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink)}
+.club{display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--paper);color:var(--ink);text-decoration:none;padding:12px 16px 12px 12px;box-shadow:6px 6px 0 var(--ink);transform:rotate(.8deg);transition:transform .15s,box-shadow .15s}
+.club img{width:76px;height:76px;object-fit:cover}
+.club small{display:block;font-size:11px;font-weight:bold;letter-spacing:.14em;text-transform:uppercase;color:var(--rd)}
+.club b{display:block;font-family:var(--disp);font-weight:900;font-size:19px;line-height:1.1;margin:3px 0 2px}
+.club span span{font-size:14px;color:#33507f}
+.club>i{font-style:normal;font-size:22px;font-weight:bold}
+.club:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+
+/* ---------- agenda + lustrum ---------- */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tile{position:relative;overflow:hidden;min-height:190px;padding:16px 15px 15px;text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .15s,box-shadow .15s}
+.tile b{display:block;font-family:var(--disp);font-weight:900;font-size:21px;line-height:1.05;position:relative}
+.tile span{display:block;font-size:13.5px;line-height:1.35;margin-top:5px;position:relative}
+.tile:active{transform:translate(3px,3px)}
+.t-agenda{background:var(--blue);color:#fff;box-shadow:6px 6px 0 #00000059;transform:rotate(-1deg)}
+.t-agenda span{color:#eaf3fc}
+.cal{position:absolute;top:16px;left:15px;width:52px;height:56px;background:#fff;box-shadow:3px 3px 0 var(--ink);transform:rotate(-5deg)}
+.cal:before{content:'';position:absolute;left:0;right:0;top:0;height:15px;background:var(--red)}
+.cal:after{content:'';position:absolute;left:8px;right:8px;top:22px;bottom:8px;background:radial-gradient(circle,var(--ink) 2.2px,transparent 2.6px) 0 0/12px 12px}
+.t-lustrum{background:var(--cream);color:var(--ink);box-shadow:6px 6px 0 var(--ink);transform:rotate(1.2deg)}
+.t-lustrum span{color:#33507f}
+.big55{position:absolute;top:-18px;right:-10px;font-family:var(--disp);font-weight:900;font-size:96px;line-height:1;color:var(--red);letter-spacing:-.06em;transform:rotate(-8deg)}
+
+/* ---------- nieuws ---------- */
+.news{display:grid;gap:20px}
+.knip{filter:drop-shadow(5px 5px 0 var(--ink))}
+.knip:nth-child(1){transform:rotate(-.6deg)}.knip:nth-child(2){transform:rotate(.5deg)}.knip:nth-child(3){transform:rotate(-.3deg)}
+.knip a{display:grid;grid-template-columns:84px minmax(0,1fr);gap:14px;align-items:center;background:var(--paper);color:var(--ink);text-decoration:none;padding:12px 14px 20px 12px;clip-path:polygon(0 0,100% 0,100% calc(100% - 5px),94% 100%,87% calc(100% - 6px),80% 100%,72% calc(100% - 4px),64% 100%,56% calc(100% - 6px),48% 100%,40% calc(100% - 5px),32% 100%,24% calc(100% - 6px),16% 100%,8% calc(100% - 4px),0 100%)}
+.knip img{width:84px;height:84px;object-fit:cover}
+.knip small{display:block;font-size:11px;font-weight:bold;letter-spacing:.15em;text-transform:uppercase;color:var(--rd)}
+.knip b{display:block;font-family:var(--disp);font-weight:900;font-size:17px;line-height:1.15;margin-top:4px;letter-spacing:-.01em}
+.knip a:active{transform:translate(2px,2px)}
+.allnews{display:inline-flex;align-items:center;gap:10px;min-height:48px;margin-top:20px;color:var(--yellow);font-weight:bold;font-size:17px;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+
+/* ---------- footer ---------- */
+.foot{margin-top:84px;display:block;border:0;padding:0}
+.foot .band{height:28px;background:var(--ruit) 0 0/28px 28px}
+.foot .in{text-align:center;padding:40px 20px 46px;color:var(--muted);font-size:13.5px;line-height:1.6;background:var(--ink)}
+.foot svg{width:96px;color:#fff;margin:0 auto 14px;display:block}
+.foot a{color:#fff;display:inline-block;padding:12px 0}
+.foot p{margin:0}
+
+.lid :focus-visible{outline-color:var(--ink)}
+.knip a:focus-visible{outline:3px solid var(--blue);outline-offset:-6px}
+.ev:focus-visible,.tile:focus-visible{outline-offset:5px}
+
+/* ---------- beweging ---------- */
+.js .rv{opacity:0;translate:0 26px;transition:opacity .7s,translate .7s cubic-bezier(.2,.8,.3,1)}
+.js .rv.in{opacity:1;translate:none}
+.ev.rv{transition:opacity .7s,translate .7s cubic-bezier(.2,.8,.3,1),transform .15s,box-shadow .15s}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;translate:none}}
+@keyframes plof{from{opacity:0;transform:scale(1.25) rotate(-6deg)}}
+@keyframes drop{from{opacity:0;transform:translateY(-40px) rotate(18deg) scale(1.15)}}
+@keyframes stamp{from{opacity:0;transform:scale(1.9) rotate(-10deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes nudge{50%{transform:translateX(6px)}}
+.ttl .torn.l2{animation-name:plof2}.ttl .l3{animation-name:plof3}
+@keyframes plof2{from{opacity:0;transform:scale(1.25) rotate(-8deg)}}
+@keyframes plof3{from{opacity:0;transform:scale(1.25) rotate(8deg)}}
+
+@media (hover:hover){
+  .soc a:hover{transform:translateY(-3px) rotate(0);box-shadow:6px 7px 0 var(--ink);background:#fff}
+  .ev:hover{transform:translate(-3px,-3px) rotate(0);box-shadow:10px 10px 0 var(--ink)}
+  .ev.next:hover{transform:translate(-3px,-3px) rotate(0);box-shadow:12px 12px 0 var(--ink)}
+  .ev:hover .bar i{transform:translateX(5px)}
+  .join:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 var(--ink)}
+  .club:hover{transform:rotate(0) translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+  .tile:hover{transform:rotate(0) translate(-2px,-2px)}
+  .knip a:hover{background:#fff}
+  .allnews:hover{color:#fff}
+  .foot a:hover{color:var(--yellow)}
+}
+
+/* ---------- groter scherm ---------- */
+@media (min-width:700px){
+  .evs{grid-template-columns:1.12fr 1fr;align-items:stretch;gap:26px 30px}
+  .ev:not(.next){grid-template-rows:1fr auto}
+  .ev.next+.ev:last-child{display:block}
+  .ev.next+.ev:last-child .pic{height:350px}
+  .ev.next+.ev:last-child .tx{padding:18px 20px 20px}
+  .ev.next+.ev:last-child h3{font-size:26px}
+  .ev.next+.ev:last-child .bar{min-height:58px;font-size:20px}
+  .ev:not(.next){grid-template-columns:132px minmax(0,1fr)}
+  .ev:not(.next) .pic{min-height:132px}
+  .ev.next{grid-row:span var(--span,3)}
+  .ev.next.solo{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.8fr) 1fr;grid-template-areas:"pic tx" "pic bar";grid-template-rows:1fr auto}
+  .ev.next.solo .pic{height:auto;min-height:320px}
+  .ev.next.solo .tx{align-self:center;padding:30px 34px}
+  .ev.next .pic{height:350px}
+  .ev.next .pic>img{width:56%;top:20px;left:9%}
+  .ev.next .dsk{width:104px;height:104px;top:22px;right:24px}
+  .ev.next .dsk b{font-size:40px}
+  .ev.next .flip i{width:60px;height:88px;font-size:52px}
+  .pol{width:180px}
+  .news{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .knip a{height:100%}
+  .lid .col{grid-template-columns:1.2fr 1fr;align-items:center;gap:50px}
+}
+@media (min-width:960px){
+  .ruit{width:30%;height:100%;clip-path:polygon(24% 0,100% 0,100% 100%,0 100%)}
+  .hero{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);grid-template-rows:none;grid-template-areas:"brand pic" "title pic" "bio pic" "handle pic" "soc pic";padding-top:34px;padding-bottom:64px;column-gap:40px}
+  .handle{font-size:16px;margin-top:10px}
+  .brand small{display:block}
+  .pol{width:300px;padding:12px 12px 46px;align-self:center;margin:30px 30px 0 0;box-shadow:12px 12px 0 var(--ink)}
+  .pol:before{width:110px;height:30px;margin-left:-55px;top:-15px}
+  .seal55{width:104px;height:104px;font-size:40px;left:-54px;bottom:-30px;box-shadow:5px 5px 0 var(--ink)}
+  .seal55 small{font-size:12px}
+  .brand{flex-direction:row;align-items:center;gap:16px}
+  .brand svg{width:96px}
+  .ttl{margin-top:30px}
+  .bio{font-size:21px}
+  .hero .soc{display:flex}
+  .soc a{width:52px;height:52px}
+  .sec{padding-top:80px}
+  .tiles{gap:26px}
+  .tile{min-height:200px;padding:24px}
+  .tile b{font-size:27px}.tile span{font-size:15px}
+  .cal{top:24px;left:24px;width:80px;height:86px}
+  .cal:before{height:22px}
+  .cal:after{top:32px;left:12px;right:12px;bottom:12px;background-size:16px 16px}
+  .big55{font-size:150px}
+  .club{grid-template-columns:120px minmax(0,1fr) auto;padding:16px 22px 16px 16px}
+  .club img{width:120px;height:120px}
+  .club b{font-size:26px}
+}
+@media (max-width:959px){.ruit{height:150px}}
+@media (max-width:699px){
+  .hero{padding-top:14px}
+  .ttl{font-size:clamp(38px,11.6vw,92px)}
+  .bio{font-size:16.5px;margin-top:14px}
+  .ev.next .pic{height:140px}
+  .ev.next .pic>img{width:34%;top:10px}
+  .sec>h2{font-size:clamp(24px,6.9vw,42px);gap:10px}
+  .ttl .star{display:none}
+}
+@media (max-width:519px){
+  .tiles{grid-template-columns:1fr}
+  .tile{min-height:120px}
+  .t-agenda{padding-left:86px}
+  .big55{font-size:84px;top:-12px}
+  .t-lustrum b,.t-lustrum span{max-width:64%}
+}
+@media (max-width:359px){
+  .ev{grid-template-columns:84px minmax(0,1fr)}
+  .tiles{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-<div class="stage">
-  <div class="stripes" aria-hidden="true"></div>
-  <div class="col prof">
-    <img class="ava" src="avatar.jpg" alt="JOVD Hart van Brabant" width="264" height="264">
-    <h1><span class="torn">JOVD Hart van Brabant</span></h1>
-    <p class="handle">@jovdhartvanbrabant</p>
+<header class="stage">
+  <div class="ruit" aria-hidden="true"></div>
+  <div class="col hero">
+    <div class="brand"><svg aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 3015.601 1993.488" xmlns="http://www.w3.org/2000/svg" ><defs /><g transform="matrix(1.3333333,0,0,-1.3333333,-1326.8449,-486.64056)"><g transform="matrix(0.88652944,0,0,0.88652944,995.13533,-1860.0946)" style="fill:currentColor"><path d="m 2102.96,404.34 c -0.49,-9.508 -8.82,-16.762 -18.54,-16.121 l -12.28,0.851 c -9.66,0.641 -17.15,8.91 -16.76,18.328 l 24.18,483.629 c 0.44,9.481 8.78,17.301 18.49,17.301 h 12.4 c 9.77,0.078 17.38,-7.75 16.97,-17.301 z m 410.5,1216.09 -322.68,-40.52 c -19.48,-1.86 -36.14,-19.09 -37.12,-38.26 l -22.54,-461.06 -76.65,-2.36 c -18.69,-0.61 -43.3,-13.97 -54.56,-29.74 L 1493.47,339.469 c -20.17,-26.66 -8.36,-55.86 20.68,-58.278 l 924.92,-87.32 c 21.33,-1.891 39.76,12.988 40.84,33.149 l 71.22,1360.05 c 1.13,20.46 -15.8,35.45 -37.67,33.36" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="M 735.328,1003.86 1219.27,134.488 c 3.96,-6.777 7.07,-7.269 7.92,-7.269 0.7,0.121 2.54,0.203 5.88,4.57 l 666.57,897.631 c 2.83,3.75 3.89,6.82 4.14,8.21 -1.02,0.32 -3.19,0.91 -6.48,0.91 h -0.38 l -221.83,-5.51 c -15.25,0.35 -42.66,-14.81 -51.52,-29.27 h 13.62 L 1274.73,489.129 c -7.52,-11.367 -19.2,-19.629 -32.88,-19.629 -15.43,0 -27.85,10.41 -34.52,23.789 L 947.758,992.441 c -5,11.079 -23.91,22.559 -33.688,21.729 h -0.152 l -178.27,-4.59 c -1.16,0 -1.89,-0.07 -2.257,-0.18 0,-0.82 0.437,-2.78 1.937,-5.54 M 1227.19,94.5313 c -15.69,0 -29,10.1597 -36.53,24.0777 L 706.641,987.895 c -3.762,6.957 -6.09,14.295 -6.09,21.935 -0.043,8.47 3.437,17.61 10.047,23.63 6.711,6.07 15.519,8.73 24.113,8.99 l 178.199,4.56 h 1.16 c 25.879,-0.78 50.039,-16.52 62.84,-39.5 l 259.35,-499.182 c 1.66,-3.008 3.41,-4.68 4.31,-5.5 1.12,-0.629 1.28,-0.566 1.28,-0.566 0,0 2.14,-0.063 5.77,5.136 l 362.54,514.752 c 17.4,24.57 34.4,42.23 64.02,43.62 l 221.02,5.53 c 1.09,0.1 1.72,0 2.1,0 9.66,0 19.02,-1.92 26.81,-7.69 7.83,-5.59 12.85,-15.73 12.7,-25.13 -0.15,-10.44 -4.42,-19.81 -10.92,-28.65 L 1259.42,112.102 c -7.65,-10.43 -19.33,-17.5707 -32.18,-17.5707 h -0.05" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="m 997.41,1092.18 c 0,0 -17.012,8.21 -39.57,8.48 l -5.801,176.63 c 23.602,-5.05 56.401,-13.29 66.031,-21.73 -5.62,-68.28 83.35,-75.13 110.32,-80.98 -35.16,-40.18 -130.98,-82.4 -130.98,-82.4 m 727.74,357.89 c 86.58,139.36 11.55,225.56 -18.61,236.41 23.29,-41.55 17.15,-112.14 -12.23,-174.87 -119.77,-54.97 -161.37,-156.74 -139.91,-234.39 12.27,-44.44 3.51,-120.91 -17.61,-154.5 -59.15,-94.16 15.36,-111.21 15.36,-111.21 0,0 -5.22,66.83 21.93,69.45 50.37,4.86 33.81,-63.05 -20.36,-88.261 -24.64,-11.469 -69.64,-17.32 -107.26,2.063 -75.91,39.108 -48.17,187.538 65.68,364.618 32.67,50.83 35.09,106.5 27.18,140.9 62.96,34.57 47.24,106.57 -21.74,81.77 0,0 -67.79,57.48 -109.24,32.66 -68.64,-41.14 -51.6,-57.68 -96.36,-66.37 -9.8,-1.91 -49.94,-12.1 -48.22,-50.34 1.51,-33.94 4.75,-46.73 19.27,-47.09 42.4,3.27 85.87,46.77 67.84,-41.18 -5.75,-27.95 -73.89,-24.09 -73.89,-24.09 -5.3,-18.31 2.69,-39.93 2.69,-39.93 67.15,6.57 57.24,-80.24 -26.9,-10.53 -77.15,-51.67 -189.11,-46.02 -226.77,-20.42 -1.37,89.71 -23.26,108.1 -23.26,108.1 -17.06,19.65 -40.619,42.6 -57.162,51.9 L 938,1543.18 c 46.441,23.11 93.26,46.13 141.89,63.88 l -9.42,20.29 c -55.07,-17.18 -91.431,-23.63 -91.431,-23.63 -28.019,35.67 -48.301,74.8 -48.301,74.8 -45.66,-44.98 -123.297,-61.51 -123.297,-61.51 2.411,-29.01 17.098,-80.69 13.379,-84.58 -4.789,-8.05 -38.832,-32.6 -78.41,-43.32 l 10.34,-25.81 c 50.93,15.09 100.211,37.94 149.559,62.2 3.39,-32.06 8.242,-83.24 8.242,-113.39 0,0 -35.692,-52.61 -22.071,-106.16 8.551,27.8 17.391,33.68 24.571,29.35 l 7.871,-242.39 c -10.301,-4.87 -20.594,-12.43 -30.024,-23.82 -23.597,-28.78 40.383,-11.85 3.493,-83.871 -7.512,-14.66 8.648,-18.699 30.5,-14.258 l 9.097,-69.332 c 0,0 3.453,-21.707 21.871,-19.481 18.469,2.25 15.262,22.622 15.262,22.622 v 0.07 l -9.441,79.949 c 3.289,1.871 6.48,3.883 9.558,6 26.262,31.911 51.202,-6.359 65.212,6.473 40.37,37.228 164.67,85.438 201.01,86.248 -3.62,-18.69 -11.71,-71.43 0.79,-121.451 -109.51,-75.637 -155.03,-99.938 -167.78,-151.77 -9.04,-36.277 -0.77,-113.43 -21.59,-104.328 -20.56,9.16 -55.079,46.769 -77.071,-24.922 -41.25,-17.641 -32.528,-105.918 -3.118,-95.211 25.02,4.641 64.449,54.262 135.879,-11.687 11.8,43.039 -27.56,95.531 121,73.289 -32.36,104.929 24.87,192.179 64.92,229.468 67.14,-68.238 195.18,-161.386 216.43,-176.726 C 1378.58,640.93 1404.64,519 1404.64,519 c 0,0 69.53,39.082 109.27,-4.621 -25.24,145.601 163.61,202.18 172.78,227.121 -40.59,-7.02 -163.54,28.359 -160.68,131.852 2.56,93.878 70.71,29.847 37.02,-53.473 18.06,-7.199 94.96,45.461 67.97,110.402 58.31,155.639 -43.02,264.749 -39.04,343.489 3.05,60.45 38.9,71.46 51.1,42.25 11.82,-28.37 -20.01,-87.12 -20.01,-87.12 0,0 162.31,136.48 102.1,221.17 m -554.78,-3.39 c 17.14,0.11 31.32,-3.98 45.86,-13.38 14.74,-9.49 29.2,-34.46 81.82,-25.01 20.77,3.74 22.59,26.12 1.39,20.97 -32.97,-8.01 -44.14,13.32 -58.11,22.54 -16.9,11.17 -30.49,13.37 -50.47,11.96 -18.97,-1.34 -44.35,-17.24 -20.49,-17.08" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="m 613.383,499.871 c -0.281,-7.633 -5.649,-13.383 -11.891,-12.98 l -7.84,0.539 c -6.16,0.332 -10.918,6.91 -10.648,14.422 l 16.098,387.246 c 0.32,7.511 5.632,13.8 11.851,13.8 h 7.949 c 6.262,0 11.141,-6.179 10.821,-13.8 z M 994.242,375.719 653.621,1013.04 c -6.726,12.39 -22.418,22.31 -34.906,21.9 l -262.953,-6.52 c -11.379,-0.19 -21.199,-12.31 -21.758,-26.81 L 310.543,417.629 c -0.559,-14.301 8.199,-26.899 19.52,-27.918 l 641.152,-56.5 c 25.91,-1.742 34.225,22.461 23.027,42.508" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="m 296.555,1104.22 c -0.602,-14.46 -10.758,-26.51 -22.539,-26.78 l -216.1293,-6.49 c -10.9922,-0.28 -19.4023,10.65 -18.7812,24.35 l 10.0898,265.02 c 0.6406,13.86 9.8985,25.92 20.9492,26.89 l 216.9805,18.44 c 11.879,0.96 21.078,-10.05 20.48,-24.39 l -11.05,-277.04" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="M 254.32,22.7383 C 253.742,8.53906 243.75,-1.64844 232.09,0.21875 L 18.6211,32.7891 C 7.85156,34.4492 -0.480469,46.9414 0.0195313,60.5195 L 36.2617,1000.43 c 0.5196,13.77 9.8281,25.23 20.7813,25.52 l 216.148,4.61 c 11.758,0.37 20.969,-11.22 20.34,-25.64 L 254.32,22.7383" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /></g></g></svg><small>Jongerenorganisatie Vrijheid en Democratie</small></div>
+    <figure class="pol"><img src="avatar.jpg" alt="Profielfoto van JOVD Hart van Brabant" width="264" height="264"><span class="seal55" aria-hidden="true">55<small>JAAR</small></span></figure>
+    <p class="handle"><i>@</i>jovdhartvanbrabant</p>
+    <h1 class="ttl"><span class="l1">JOVD </span><span class="torn l2">Hart van </span><span class="torn l3">Brabant</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.5l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.6l-6.4 3.5L7 14l-5.3-5 7.2-.9z"/></svg></h1>
     <p class="bio">Dé liberale jongerenorganisatie van Tilburg en omstreken! 💙</p>
     <nav class="soc" aria-label="Socials">
-      <a href="https://instagram.com/jovdhartvanbrabant" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg></a>
-      <a href="https://www.facebook.com/jovd.hartvanbrabant/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.6l.4-4h-4V6.3c0-1 .2-1.3 1.1-1.3H18V0h-3.8C10.6 0 9 1.6 9 4.6V8z"/></svg></a>
-      <a href="https://www.linkedin.com/company/jovd-hart-van-brabant/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6.1V21h-4v-5.4c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21H9z"/></svg></a>
-      <a href="mailto:secretaris@jovdhartvanbrabant.nl" aria-label="E-mail"><svg viewBox="0 0 24 24"><path d="M2 4h20a2 2 0 012 2v12a2 2 0 01-2 2H2a2 2 0 01-2-2V6a2 2 0 012-2zm0 2v.5l10 6.3 10-6.3V6zm20 2.9l-10 6.3L2 8.9V18h20z"/></svg></a>
-      <a href="https://jovd.nl/afdelingen/hart_van_brabant/" aria-label="Website" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm7.9 7h-3.5a18 18 0 00-1.6-4.5A10 10 0 0119.9 7zM12 2c.9 1.3 1.7 3 2.2 5H9.8c.5-2 1.3-3.7 2.2-5zM2.3 14a10 10 0 010-4h4a20 20 0 000 4zm.8 3h3.5c.4 1.6.9 3.1 1.6 4.5A10 10 0 013.1 17zM6.6 7H3.1a10 10 0 014.9-4.5C7.4 3.9 6.9 5.4 6.6 7zM12 22c-.9-1.3-1.7-3-2.2-5h4.4c-.5 2-1.3 3.7-2.2 5zm2.6-7H9.4a18 18 0 010-4h5.2a18 18 0 010 4zm.2 6.5c.7-1.4 1.2-2.9 1.6-4.5h3.5a10 10 0 01-5.1 4.5zm2.9-6.5a20 20 0 000-4h4a10 10 0 010 4z"/></svg></a>
+      <a href="https://instagram.com/jovdhartvanbrabant" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg></a>
+      <a href="https://www.facebook.com/jovd.hartvanbrabant/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8H6v4h3v12h5V12h3.6l.4-4h-4V6.3c0-1 .2-1.3 1.1-1.3H18V0h-3.8C10.6 0 9 1.6 9 4.6V8z"/></svg></a>
+      <a href="https://www.linkedin.com/company/jovd-hart-van-brabant/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6.1V21h-4v-5.4c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21H9z"/></svg></a>
+      <a href="mailto:secretaris@jovdhartvanbrabant.nl" aria-label="E-mail de secretaris"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 012 2v12a2 2 0 01-2 2H2a2 2 0 01-2-2V6a2 2 0 012-2zm0 2v.5l10 6.3 10-6.3V6zm20 2.9l-10 6.3L2 8.9V18h20z"/></svg></a>
+      <a href="https://jovd.nl/afdelingen/hart_van_brabant/" aria-label="Website" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm7.9 7h-3.5a18 18 0 00-1.6-4.5A10 10 0 0119.9 7zM12 2c.9 1.3 1.7 3 2.2 5H9.8c.5-2 1.3-3.7 2.2-5zM2.3 14a10 10 0 010-4h4a20 20 0 000 4zm.8 3h3.5c.4 1.6.9 3.1 1.6 4.5A10 10 0 013.1 17zM6.6 7H3.1a10 10 0 014.9-4.5C7.4 3.9 6.9 5.4 6.6 7zM12 22c-.9-1.3-1.7-3-2.2-5h4.4c-.5 2-1.3 3.7-2.2 5zm2.6-7H9.4a18 18 0 010-4h5.2a18 18 0 010 4zm.2 6.5c.7-1.4 1.2-2.9 1.6-4.5h3.5a10 10 0 01-5.1 4.5zm2.9-6.5a20 20 0 000-4h4a10 10 0 010 4z"/></svg></a>
     </nav>
   </div>
-</div>
+  <div class="rip" aria-hidden="true"></div>
+</header>
 
-<main class="col">
-  <section class="sec" aria-labelledby="s1"><h2 id="s1">Nu aanmelden</h2>
-    <a class="ev reveal" href="https://huddy.jovdhvb.nl" data-until="2027-01-26T23:59:00+01:00" data-date="2027-01-26T19:30:00+01:00">
-      <div class="th"><img src="huddy-th.jpg" alt="" loading="lazy"></div>
-      <div class="tx"><div class="when">Di 26 januari · 19:30 <span class="days"></span></div><h3>Achter de schermen van de Amerikaanse media met Juliet Huddy 🇺🇸</h3><p>Oud-presentatrice van Fox &amp; Friends Weekend · ’t Elfde Gebod</p></div>
-      <div class="go2">Aanmelden <span>→</span></div>
-    </a>
-    <a class="ev reveal" href="https://politiekcafe.jovdhvb.nl" data-until="2027-02-16T23:59:00+01:00" data-date="2027-02-16T19:30:00+01:00">
-      <div class="th"><img src="pc-th.jpg" alt="" loading="lazy"></div>
-      <div class="tx"><div class="when">Di 16 februari · 19:30 <span class="days"></span></div><h3>Politiek café: provinciale verkiezingen 🗳️</h3><p>Met Jelle van Nuland en Bas Peeters · ’t Elfde Gebod</p></div>
-      <div class="go2">Aanmelden <span>→</span></div>
-    </a>
-    <a class="ev reveal" href="https://reis.jovdhvb.nl" data-until="2027-04-29T00:00:00+02:00" data-date="2027-04-29T06:00:00+02:00">
-      <div class="th th-reis" aria-hidden="true"><i>?</i><i>?</i><i>?</i></div>
-      <div class="tx"><div class="when">29 april – 2 mei 2027 <span class="days"></span></div><h3>Lustrumreis 2027 ✈️</h3><p>4 dagen, 3 nachten, 1 geheime bestemming. Claim je stoel.</p></div>
-      <div class="go2">Aanmelden <span>→</span></div>
-    </a>
-    <a class="ev reveal" href="https://interesselijst.jovdhvb.nl">
-      <div class="th th-das"><img src="das.png" alt="" loading="lazy"></div>
-      <div class="tx"><div class="when">Lustrum 55 <span class="italy"><b></b>Made in Italy</span></div><h3>Lustrumdas &amp; -sjaal</h3><p>Zet je naam op de interesselijst · €38</p></div>
-      <div class="go2">Interesselijst <span>→</span></div>
-    </a>
+<main>
+  <section class="col sec" id="aanmelden" aria-labelledby="s1"><h2 id="s1"><span class="torn">Nu aanmelden</span><span class="slash" aria-hidden="true"></span></h2>
+    <div class="evs">
+      <a class="ev next" href="https://huddy.jovdhvb.nl" data-until="2027-01-26T23:59:00+01:00" data-date="2027-01-26T19:30:00+01:00">
+        <div class="pic"><div class="pat pat-strepen"></div><img src="huddy-th.jpg" alt="" width="400" height="350"><span class="dsk"></span></div>
+        <div class="tx"><div class="when">Di 26 januari · 19:30 <span class="days"></span></div><h3>Achter de schermen van de Amerikaanse media met Juliet Huddy</h3><p>Oud-presentatrice van Fox &amp; Friends Weekend · ’t Elfde Gebod</p></div>
+        <div class="bar">Aanmelden <i aria-hidden="true">→</i></div>
+      </a>
+      <a class="ev rv" href="https://politiekcafe.jovdhvb.nl" data-until="2027-02-16T23:59:00+01:00" data-date="2027-02-16T19:30:00+01:00">
+        <div class="pic"><div class="pat pat-ruit"></div><img src="pc-th.jpg" alt="" width="300" height="300" loading="lazy"><span class="dsk"></span></div>
+        <div class="tx"><div class="when">Di 16 februari · 19:30 <span class="days"></span></div><h3>Politiek café: provinciale verkiezingen</h3><p>Met Jelle van Nuland en Bas Peeters · ’t Elfde Gebod</p></div>
+        <div class="bar">Aanmelden <i aria-hidden="true">→</i></div>
+      </a>
+      <a class="ev rv" href="https://reis.jovdhvb.nl" data-until="2027-04-29T00:00:00+02:00" data-date="2027-04-29T06:00:00+02:00">
+        <div class="pic"><div class="flip" aria-hidden="true"><i>?</i><i>?</i><i>?</i></div><span class="dsk"></span></div>
+        <div class="tx"><div class="when">29 april – 2 mei 2027 <span class="days"></span></div><h3>Lustrumreis 2027</h3><p>4 dagen, 3 nachten, 1 geheime bestemming. Claim je stoel.</p></div>
+        <div class="bar">Aanmelden <i aria-hidden="true">→</i></div>
+      </a>
+      <a class="ev ev-das rv" href="https://interesselijst.jovdhvb.nl">
+        <div class="pic"><img src="das.png" alt="" loading="lazy"><span class="dt">€38</span></div>
+        <div class="tx"><div class="when">Lustrum 55 <span class="italy"><b></b>Made in Italy</span></div><h3>Lustrumdas &amp; -sjaal</h3><p>Zet je naam op de interesselijst.</p></div>
+        <div class="bar">Interesselijst <i aria-hidden="true">→</i></div>
+      </a>
+    </div>
   </section>
 
-  <section class="sec" aria-labelledby="s2"><h2 id="s2">Word lid</h2>
-    <a class="lk big reveal" href="https://aanmelden.jovd.nl/" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">💙</span><span><b>Word lid van JOVD Hart van Brabant!</b><small>Debatten, borrels, reizen en politiek met invloed</small></span><span class="ar" aria-hidden="true">→</span></a>
-    <a class="lk reveal" href="https://jovd.nl/afdelingen/hart_van_brabant/club_013/" target="_blank" rel="noopener"><img src="club013.jpg" alt="" loading="lazy"><span><b>Word lid van CLUB 013!</b><small>Ons donateursnetwerk</small></span><span class="ar" aria-hidden="true">→</span></a>
+  <section class="lid rv" aria-labelledby="s2">
+    <div class="col">
+      <div>
+        <span class="kick">JOVD Hart van Brabant</span>
+        <h2 id="s2">Word<br>lid<span>!</span></h2>
+        <ul class="perks" aria-label="Wat je krijgt"><li>Debatten</li><li>Borrels</li><li>Reizen</li><li>Politiek met invloed</li></ul>
+        <a class="join" href="https://aanmelden.jovd.nl/" target="_blank" rel="noopener">Meld je aan als lid <span aria-hidden="true">→</span></a>
+      </div>
+      <a class="club" href="https://jovd.nl/afdelingen/hart_van_brabant/club_013/" target="_blank" rel="noopener"><img src="club013.jpg" alt="" loading="lazy" width="160" height="160"><span><small>Liever donateur?</small><b>Word lid van CLUB 013!</b><span>Ons donateursnetwerk</span></span><i aria-hidden="true">→</i></a>
+    </div>
   </section>
 
-  <section class="sec" aria-labelledby="s3"><h2 id="s3">Activiteiten</h2>
-    <a class="lk reveal" href="https://jovd.nl/afdelingen/hart_van_brabant/agenda/" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">📅</span><span><b>Agenda JOVD Hart van Brabant</b><small>Alles wat eraan komt</small></span><span class="ar" aria-hidden="true">→</span></a>
-    <a class="lk reveal" href="https://jovd.nl/afdelingen/hart_van_brabant/lustrum/" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">🎉</span><span><b>55 jaar JOVD Hart van Brabant</b><small>Symposium, reis, gala: het lustrumjaar 2027</small></span><span class="ar" aria-hidden="true">→</span></a>
+  <section class="col sec" aria-labelledby="s3"><h2 id="s3"><span class="torn">Activiteiten</span><span class="slash" aria-hidden="true"></span></h2>
+    <div class="tiles rv">
+      <a class="tile t-agenda" href="https://jovd.nl/afdelingen/hart_van_brabant/agenda/" target="_blank" rel="noopener"><span class="cal" aria-hidden="true"></span><b>Agenda</b><span>Alles wat eraan komt</span></a>
+      <a class="tile t-lustrum" href="https://jovd.nl/afdelingen/hart_van_brabant/lustrum/" target="_blank" rel="noopener"><span class="big55" aria-hidden="true">55</span><b>Lustrum</b><span>55 jaar JOVD Hart van Brabant. Symposium, reis, gala: het lustrumjaar 2027</span></a>
+    </div>
   </section>
 
-  <section class="sec" aria-labelledby="s4"><h2 id="s4">Nieuws</h2>
-    <a class="lk reveal" href="https://jovd.nl/afdelingen/hart_van_brabant/nieuws/geen_veilige_elfde_van_de_elfde_voor_ondernemend_tilburg" target="_blank" rel="noopener"><img src="nieuws-elfde.jpg" alt="" loading="lazy"><span><b>Geen veilige Elfde van de Elfde voor ondernemend Tilburg</b></span><span class="ar" aria-hidden="true">→</span></a>
-    <a class="lk reveal" href="https://jovd.nl/afdelingen/hart_van_brabant/nieuws/een_vol_stroomnet_wie_geen_ruimte_wil_maken_voor_stroom_moet_stoppen_met_praten_over_duurzaamheid" target="_blank" rel="noopener"><img src="nieuws-stroom.jpg" alt="" loading="lazy"><span><b>Opiniestuk: een vol stroomnet!</b></span><span class="ar" aria-hidden="true">→</span></a>
-    <a class="lk reveal" href="https://jovd.nl/afdelingen/hart_van_brabant/nieuws/draaimolen_moet_blijven_draaien" target="_blank" rel="noopener"><img src="nieuws-draaimolen.jpg" alt="" loading="lazy"><span><b>Nieuws: draaimolen moet blijven!</b></span><span class="ar" aria-hidden="true">→</span></a>
-    <a class="lk reveal" href="https://jovd.nl/afdelingen/hart_van_brabant/nieuws/" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">📰</span><span><b>Al het nieuws</b></span><span class="ar" aria-hidden="true">→</span></a>
+  <section class="col sec" aria-labelledby="s4"><h2 id="s4"><span class="torn">Nieuws</span><span class="slash" aria-hidden="true"></span></h2>
+    <div class="news">
+      <article class="knip rv"><a href="https://jovd.nl/afdelingen/hart_van_brabant/nieuws/geen_veilige_elfde_van_de_elfde_voor_ondernemend_tilburg" target="_blank" rel="noopener"><img src="nieuws-elfde.jpg" alt="" loading="lazy" width="160" height="160"><span><small>Nieuws</small><b>Geen veilige Elfde van de Elfde voor ondernemend Tilburg</b></span></a></article>
+      <article class="knip rv"><a href="https://jovd.nl/afdelingen/hart_van_brabant/nieuws/een_vol_stroomnet_wie_geen_ruimte_wil_maken_voor_stroom_moet_stoppen_met_praten_over_duurzaamheid" target="_blank" rel="noopener"><img src="nieuws-stroom.jpg" alt="" loading="lazy" width="160" height="160"><span><small>Opiniestuk</small><b>Een vol stroomnet!</b></span></a></article>
+      <article class="knip rv"><a href="https://jovd.nl/afdelingen/hart_van_brabant/nieuws/draaimolen_moet_blijven_draaien" target="_blank" rel="noopener"><img src="nieuws-draaimolen.jpg" alt="" loading="lazy" width="160" height="160"><span><small>Nieuws</small><b>Draaimolen moet blijven!</b></span></a></article>
+    </div>
+    <a class="allnews" href="https://jovd.nl/afdelingen/hart_van_brabant/nieuws/" target="_blank" rel="noopener">Al het nieuws <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="col sec follow" aria-labelledby="s5"><h2 id="s5"><span class="torn">Volg ons</span><span class="slash" aria-hidden="true"></span></h2>
+    <nav class="soc" aria-label="Socials onderaan">
+      <a href="https://instagram.com/jovdhartvanbrabant" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg></a>
+      <a href="https://www.facebook.com/jovd.hartvanbrabant/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8H6v4h3v12h5V12h3.6l.4-4h-4V6.3c0-1 .2-1.3 1.1-1.3H18V0h-3.8C10.6 0 9 1.6 9 4.6V8z"/></svg></a>
+      <a href="https://www.linkedin.com/company/jovd-hart-van-brabant/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6.1V21h-4v-5.4c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21H9z"/></svg></a>
+      <a href="mailto:secretaris@jovdhartvanbrabant.nl" aria-label="E-mail de secretaris"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 012 2v12a2 2 0 01-2 2H2a2 2 0 01-2-2V6a2 2 0 012-2zm0 2v.5l10 6.3 10-6.3V6zm20 2.9l-10 6.3L2 8.9V18h20z"/></svg></a>
+      <a href="https://jovd.nl/afdelingen/hart_van_brabant/" aria-label="Website" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm7.9 7h-3.5a18 18 0 00-1.6-4.5A10 10 0 0119.9 7zM12 2c.9 1.3 1.7 3 2.2 5H9.8c.5-2 1.3-3.7 2.2-5zM2.3 14a10 10 0 010-4h4a20 20 0 000 4zm.8 3h3.5c.4 1.6.9 3.1 1.6 4.5A10 10 0 013.1 17zM6.6 7H3.1a10 10 0 014.9-4.5C7.4 3.9 6.9 5.4 6.6 7zM12 22c-.9-1.3-1.7-3-2.2-5h4.4c-.5 2-1.3 3.7-2.2 5zm2.6-7H9.4a18 18 0 010-4h5.2a18 18 0 010 4zm.2 6.5c.7-1.4 1.2-2.9 1.6-4.5h3.5a10 10 0 01-5.1 4.5zm2.9-6.5a20 20 0 000-4h4a10 10 0 010 4z"/></svg></a>
+    </nav>
+    <p><b>@jovdhartvanbrabant</b> op Instagram</p>
   </section>
 </main>
 
-<footer class="end"><svg aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 3015.601 1993.488" xmlns="http://www.w3.org/2000/svg" ><defs /><g transform="matrix(1.3333333,0,0,-1.3333333,-1326.8449,-486.64056)"><g transform="matrix(0.88652944,0,0,0.88652944,995.13533,-1860.0946)" style="fill:currentColor"><path d="m 2102.96,404.34 c -0.49,-9.508 -8.82,-16.762 -18.54,-16.121 l -12.28,0.851 c -9.66,0.641 -17.15,8.91 -16.76,18.328 l 24.18,483.629 c 0.44,9.481 8.78,17.301 18.49,17.301 h 12.4 c 9.77,0.078 17.38,-7.75 16.97,-17.301 z m 410.5,1216.09 -322.68,-40.52 c -19.48,-1.86 -36.14,-19.09 -37.12,-38.26 l -22.54,-461.06 -76.65,-2.36 c -18.69,-0.61 -43.3,-13.97 -54.56,-29.74 L 1493.47,339.469 c -20.17,-26.66 -8.36,-55.86 20.68,-58.278 l 924.92,-87.32 c 21.33,-1.891 39.76,12.988 40.84,33.149 l 71.22,1360.05 c 1.13,20.46 -15.8,35.45 -37.67,33.36" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="M 735.328,1003.86 1219.27,134.488 c 3.96,-6.777 7.07,-7.269 7.92,-7.269 0.7,0.121 2.54,0.203 5.88,4.57 l 666.57,897.631 c 2.83,3.75 3.89,6.82 4.14,8.21 -1.02,0.32 -3.19,0.91 -6.48,0.91 h -0.38 l -221.83,-5.51 c -15.25,0.35 -42.66,-14.81 -51.52,-29.27 h 13.62 L 1274.73,489.129 c -7.52,-11.367 -19.2,-19.629 -32.88,-19.629 -15.43,0 -27.85,10.41 -34.52,23.789 L 947.758,992.441 c -5,11.079 -23.91,22.559 -33.688,21.729 h -0.152 l -178.27,-4.59 c -1.16,0 -1.89,-0.07 -2.257,-0.18 0,-0.82 0.437,-2.78 1.937,-5.54 M 1227.19,94.5313 c -15.69,0 -29,10.1597 -36.53,24.0777 L 706.641,987.895 c -3.762,6.957 -6.09,14.295 -6.09,21.935 -0.043,8.47 3.437,17.61 10.047,23.63 6.711,6.07 15.519,8.73 24.113,8.99 l 178.199,4.56 h 1.16 c 25.879,-0.78 50.039,-16.52 62.84,-39.5 l 259.35,-499.182 c 1.66,-3.008 3.41,-4.68 4.31,-5.5 1.12,-0.629 1.28,-0.566 1.28,-0.566 0,0 2.14,-0.063 5.77,5.136 l 362.54,514.752 c 17.4,24.57 34.4,42.23 64.02,43.62 l 221.02,5.53 c 1.09,0.1 1.72,0 2.1,0 9.66,0 19.02,-1.92 26.81,-7.69 7.83,-5.59 12.85,-15.73 12.7,-25.13 -0.15,-10.44 -4.42,-19.81 -10.92,-28.65 L 1259.42,112.102 c -7.65,-10.43 -19.33,-17.5707 -32.18,-17.5707 h -0.05" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="m 997.41,1092.18 c 0,0 -17.012,8.21 -39.57,8.48 l -5.801,176.63 c 23.602,-5.05 56.401,-13.29 66.031,-21.73 -5.62,-68.28 83.35,-75.13 110.32,-80.98 -35.16,-40.18 -130.98,-82.4 -130.98,-82.4 m 727.74,357.89 c 86.58,139.36 11.55,225.56 -18.61,236.41 23.29,-41.55 17.15,-112.14 -12.23,-174.87 -119.77,-54.97 -161.37,-156.74 -139.91,-234.39 12.27,-44.44 3.51,-120.91 -17.61,-154.5 -59.15,-94.16 15.36,-111.21 15.36,-111.21 0,0 -5.22,66.83 21.93,69.45 50.37,4.86 33.81,-63.05 -20.36,-88.261 -24.64,-11.469 -69.64,-17.32 -107.26,2.063 -75.91,39.108 -48.17,187.538 65.68,364.618 32.67,50.83 35.09,106.5 27.18,140.9 62.96,34.57 47.24,106.57 -21.74,81.77 0,0 -67.79,57.48 -109.24,32.66 -68.64,-41.14 -51.6,-57.68 -96.36,-66.37 -9.8,-1.91 -49.94,-12.1 -48.22,-50.34 1.51,-33.94 4.75,-46.73 19.27,-47.09 42.4,3.27 85.87,46.77 67.84,-41.18 -5.75,-27.95 -73.89,-24.09 -73.89,-24.09 -5.3,-18.31 2.69,-39.93 2.69,-39.93 67.15,6.57 57.24,-80.24 -26.9,-10.53 -77.15,-51.67 -189.11,-46.02 -226.77,-20.42 -1.37,89.71 -23.26,108.1 -23.26,108.1 -17.06,19.65 -40.619,42.6 -57.162,51.9 L 938,1543.18 c 46.441,23.11 93.26,46.13 141.89,63.88 l -9.42,20.29 c -55.07,-17.18 -91.431,-23.63 -91.431,-23.63 -28.019,35.67 -48.301,74.8 -48.301,74.8 -45.66,-44.98 -123.297,-61.51 -123.297,-61.51 2.411,-29.01 17.098,-80.69 13.379,-84.58 -4.789,-8.05 -38.832,-32.6 -78.41,-43.32 l 10.34,-25.81 c 50.93,15.09 100.211,37.94 149.559,62.2 3.39,-32.06 8.242,-83.24 8.242,-113.39 0,0 -35.692,-52.61 -22.071,-106.16 8.551,27.8 17.391,33.68 24.571,29.35 l 7.871,-242.39 c -10.301,-4.87 -20.594,-12.43 -30.024,-23.82 -23.597,-28.78 40.383,-11.85 3.493,-83.871 -7.512,-14.66 8.648,-18.699 30.5,-14.258 l 9.097,-69.332 c 0,0 3.453,-21.707 21.871,-19.481 18.469,2.25 15.262,22.622 15.262,22.622 v 0.07 l -9.441,79.949 c 3.289,1.871 6.48,3.883 9.558,6 26.262,31.911 51.202,-6.359 65.212,6.473 40.37,37.228 164.67,85.438 201.01,86.248 -3.62,-18.69 -11.71,-71.43 0.79,-121.451 -109.51,-75.637 -155.03,-99.938 -167.78,-151.77 -9.04,-36.277 -0.77,-113.43 -21.59,-104.328 -20.56,9.16 -55.079,46.769 -77.071,-24.922 -41.25,-17.641 -32.528,-105.918 -3.118,-95.211 25.02,4.641 64.449,54.262 135.879,-11.687 11.8,43.039 -27.56,95.531 121,73.289 -32.36,104.929 24.87,192.179 64.92,229.468 67.14,-68.238 195.18,-161.386 216.43,-176.726 C 1378.58,640.93 1404.64,519 1404.64,519 c 0,0 69.53,39.082 109.27,-4.621 -25.24,145.601 163.61,202.18 172.78,227.121 -40.59,-7.02 -163.54,28.359 -160.68,131.852 2.56,93.878 70.71,29.847 37.02,-53.473 18.06,-7.199 94.96,45.461 67.97,110.402 58.31,155.639 -43.02,264.749 -39.04,343.489 3.05,60.45 38.9,71.46 51.1,42.25 11.82,-28.37 -20.01,-87.12 -20.01,-87.12 0,0 162.31,136.48 102.1,221.17 m -554.78,-3.39 c 17.14,0.11 31.32,-3.98 45.86,-13.38 14.74,-9.49 29.2,-34.46 81.82,-25.01 20.77,3.74 22.59,26.12 1.39,20.97 -32.97,-8.01 -44.14,13.32 -58.11,22.54 -16.9,11.17 -30.49,13.37 -50.47,11.96 -18.97,-1.34 -44.35,-17.24 -20.49,-17.08" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="m 613.383,499.871 c -0.281,-7.633 -5.649,-13.383 -11.891,-12.98 l -7.84,0.539 c -6.16,0.332 -10.918,6.91 -10.648,14.422 l 16.098,387.246 c 0.32,7.511 5.632,13.8 11.851,13.8 h 7.949 c 6.262,0 11.141,-6.179 10.821,-13.8 z M 994.242,375.719 653.621,1013.04 c -6.726,12.39 -22.418,22.31 -34.906,21.9 l -262.953,-6.52 c -11.379,-0.19 -21.199,-12.31 -21.758,-26.81 L 310.543,417.629 c -0.559,-14.301 8.199,-26.899 19.52,-27.918 l 641.152,-56.5 c 25.91,-1.742 34.225,22.461 23.027,42.508" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="m 296.555,1104.22 c -0.602,-14.46 -10.758,-26.51 -22.539,-26.78 l -216.1293,-6.49 c -10.9922,-0.28 -19.4023,10.65 -18.7812,24.35 l 10.0898,265.02 c 0.6406,13.86 9.8985,25.92 20.9492,26.89 l 216.9805,18.44 c 11.879,0.96 21.078,-10.05 20.48,-24.39 l -11.05,-277.04" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="M 254.32,22.7383 C 253.742,8.53906 243.75,-1.64844 232.09,0.21875 L 18.6211,32.7891 C 7.85156,34.4492 -0.480469,46.9414 0.0195313,60.5195 L 36.2617,1000.43 c 0.5196,13.77 9.8281,25.23 20.7813,25.52 l 216.148,4.61 c 11.758,0.37 20.969,-11.22 20.34,-25.64 L 254.32,22.7383" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /></g></g></svg><p>JOVD Hart van Brabant · Jongerenorganisatie Vrijheid en Democratie<br>Vragen? <a href="mailto:secretaris@jovdhartvanbrabant.nl">secretaris@jovdhartvanbrabant.nl</a></p></footer>
+<footer class="foot">
+  <div class="band" aria-hidden="true"></div>
+  <div class="in"><svg aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 3015.601 1993.488" xmlns="http://www.w3.org/2000/svg" ><defs /><g transform="matrix(1.3333333,0,0,-1.3333333,-1326.8449,-486.64056)"><g transform="matrix(0.88652944,0,0,0.88652944,995.13533,-1860.0946)" style="fill:currentColor"><path d="m 2102.96,404.34 c -0.49,-9.508 -8.82,-16.762 -18.54,-16.121 l -12.28,0.851 c -9.66,0.641 -17.15,8.91 -16.76,18.328 l 24.18,483.629 c 0.44,9.481 8.78,17.301 18.49,17.301 h 12.4 c 9.77,0.078 17.38,-7.75 16.97,-17.301 z m 410.5,1216.09 -322.68,-40.52 c -19.48,-1.86 -36.14,-19.09 -37.12,-38.26 l -22.54,-461.06 -76.65,-2.36 c -18.69,-0.61 -43.3,-13.97 -54.56,-29.74 L 1493.47,339.469 c -20.17,-26.66 -8.36,-55.86 20.68,-58.278 l 924.92,-87.32 c 21.33,-1.891 39.76,12.988 40.84,33.149 l 71.22,1360.05 c 1.13,20.46 -15.8,35.45 -37.67,33.36" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="M 735.328,1003.86 1219.27,134.488 c 3.96,-6.777 7.07,-7.269 7.92,-7.269 0.7,0.121 2.54,0.203 5.88,4.57 l 666.57,897.631 c 2.83,3.75 3.89,6.82 4.14,8.21 -1.02,0.32 -3.19,0.91 -6.48,0.91 h -0.38 l -221.83,-5.51 c -15.25,0.35 -42.66,-14.81 -51.52,-29.27 h 13.62 L 1274.73,489.129 c -7.52,-11.367 -19.2,-19.629 -32.88,-19.629 -15.43,0 -27.85,10.41 -34.52,23.789 L 947.758,992.441 c -5,11.079 -23.91,22.559 -33.688,21.729 h -0.152 l -178.27,-4.59 c -1.16,0 -1.89,-0.07 -2.257,-0.18 0,-0.82 0.437,-2.78 1.937,-5.54 M 1227.19,94.5313 c -15.69,0 -29,10.1597 -36.53,24.0777 L 706.641,987.895 c -3.762,6.957 -6.09,14.295 -6.09,21.935 -0.043,8.47 3.437,17.61 10.047,23.63 6.711,6.07 15.519,8.73 24.113,8.99 l 178.199,4.56 h 1.16 c 25.879,-0.78 50.039,-16.52 62.84,-39.5 l 259.35,-499.182 c 1.66,-3.008 3.41,-4.68 4.31,-5.5 1.12,-0.629 1.28,-0.566 1.28,-0.566 0,0 2.14,-0.063 5.77,5.136 l 362.54,514.752 c 17.4,24.57 34.4,42.23 64.02,43.62 l 221.02,5.53 c 1.09,0.1 1.72,0 2.1,0 9.66,0 19.02,-1.92 26.81,-7.69 7.83,-5.59 12.85,-15.73 12.7,-25.13 -0.15,-10.44 -4.42,-19.81 -10.92,-28.65 L 1259.42,112.102 c -7.65,-10.43 -19.33,-17.5707 -32.18,-17.5707 h -0.05" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="m 997.41,1092.18 c 0,0 -17.012,8.21 -39.57,8.48 l -5.801,176.63 c 23.602,-5.05 56.401,-13.29 66.031,-21.73 -5.62,-68.28 83.35,-75.13 110.32,-80.98 -35.16,-40.18 -130.98,-82.4 -130.98,-82.4 m 727.74,357.89 c 86.58,139.36 11.55,225.56 -18.61,236.41 23.29,-41.55 17.15,-112.14 -12.23,-174.87 -119.77,-54.97 -161.37,-156.74 -139.91,-234.39 12.27,-44.44 3.51,-120.91 -17.61,-154.5 -59.15,-94.16 15.36,-111.21 15.36,-111.21 0,0 -5.22,66.83 21.93,69.45 50.37,4.86 33.81,-63.05 -20.36,-88.261 -24.64,-11.469 -69.64,-17.32 -107.26,2.063 -75.91,39.108 -48.17,187.538 65.68,364.618 32.67,50.83 35.09,106.5 27.18,140.9 62.96,34.57 47.24,106.57 -21.74,81.77 0,0 -67.79,57.48 -109.24,32.66 -68.64,-41.14 -51.6,-57.68 -96.36,-66.37 -9.8,-1.91 -49.94,-12.1 -48.22,-50.34 1.51,-33.94 4.75,-46.73 19.27,-47.09 42.4,3.27 85.87,46.77 67.84,-41.18 -5.75,-27.95 -73.89,-24.09 -73.89,-24.09 -5.3,-18.31 2.69,-39.93 2.69,-39.93 67.15,6.57 57.24,-80.24 -26.9,-10.53 -77.15,-51.67 -189.11,-46.02 -226.77,-20.42 -1.37,89.71 -23.26,108.1 -23.26,108.1 -17.06,19.65 -40.619,42.6 -57.162,51.9 L 938,1543.18 c 46.441,23.11 93.26,46.13 141.89,63.88 l -9.42,20.29 c -55.07,-17.18 -91.431,-23.63 -91.431,-23.63 -28.019,35.67 -48.301,74.8 -48.301,74.8 -45.66,-44.98 -123.297,-61.51 -123.297,-61.51 2.411,-29.01 17.098,-80.69 13.379,-84.58 -4.789,-8.05 -38.832,-32.6 -78.41,-43.32 l 10.34,-25.81 c 50.93,15.09 100.211,37.94 149.559,62.2 3.39,-32.06 8.242,-83.24 8.242,-113.39 0,0 -35.692,-52.61 -22.071,-106.16 8.551,27.8 17.391,33.68 24.571,29.35 l 7.871,-242.39 c -10.301,-4.87 -20.594,-12.43 -30.024,-23.82 -23.597,-28.78 40.383,-11.85 3.493,-83.871 -7.512,-14.66 8.648,-18.699 30.5,-14.258 l 9.097,-69.332 c 0,0 3.453,-21.707 21.871,-19.481 18.469,2.25 15.262,22.622 15.262,22.622 v 0.07 l -9.441,79.949 c 3.289,1.871 6.48,3.883 9.558,6 26.262,31.911 51.202,-6.359 65.212,6.473 40.37,37.228 164.67,85.438 201.01,86.248 -3.62,-18.69 -11.71,-71.43 0.79,-121.451 -109.51,-75.637 -155.03,-99.938 -167.78,-151.77 -9.04,-36.277 -0.77,-113.43 -21.59,-104.328 -20.56,9.16 -55.079,46.769 -77.071,-24.922 -41.25,-17.641 -32.528,-105.918 -3.118,-95.211 25.02,4.641 64.449,54.262 135.879,-11.687 11.8,43.039 -27.56,95.531 121,73.289 -32.36,104.929 24.87,192.179 64.92,229.468 67.14,-68.238 195.18,-161.386 216.43,-176.726 C 1378.58,640.93 1404.64,519 1404.64,519 c 0,0 69.53,39.082 109.27,-4.621 -25.24,145.601 163.61,202.18 172.78,227.121 -40.59,-7.02 -163.54,28.359 -160.68,131.852 2.56,93.878 70.71,29.847 37.02,-53.473 18.06,-7.199 94.96,45.461 67.97,110.402 58.31,155.639 -43.02,264.749 -39.04,343.489 3.05,60.45 38.9,71.46 51.1,42.25 11.82,-28.37 -20.01,-87.12 -20.01,-87.12 0,0 162.31,136.48 102.1,221.17 m -554.78,-3.39 c 17.14,0.11 31.32,-3.98 45.86,-13.38 14.74,-9.49 29.2,-34.46 81.82,-25.01 20.77,3.74 22.59,26.12 1.39,20.97 -32.97,-8.01 -44.14,13.32 -58.11,22.54 -16.9,11.17 -30.49,13.37 -50.47,11.96 -18.97,-1.34 -44.35,-17.24 -20.49,-17.08" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="m 613.383,499.871 c -0.281,-7.633 -5.649,-13.383 -11.891,-12.98 l -7.84,0.539 c -6.16,0.332 -10.918,6.91 -10.648,14.422 l 16.098,387.246 c 0.32,7.511 5.632,13.8 11.851,13.8 h 7.949 c 6.262,0 11.141,-6.179 10.821,-13.8 z M 994.242,375.719 653.621,1013.04 c -6.726,12.39 -22.418,22.31 -34.906,21.9 l -262.953,-6.52 c -11.379,-0.19 -21.199,-12.31 -21.758,-26.81 L 310.543,417.629 c -0.559,-14.301 8.199,-26.899 19.52,-27.918 l 641.152,-56.5 c 25.91,-1.742 34.225,22.461 23.027,42.508" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="m 296.555,1104.22 c -0.602,-14.46 -10.758,-26.51 -22.539,-26.78 l -216.1293,-6.49 c -10.9922,-0.28 -19.4023,10.65 -18.7812,24.35 l 10.0898,265.02 c 0.6406,13.86 9.8985,25.92 20.9492,26.89 l 216.9805,18.44 c 11.879,0.96 21.078,-10.05 20.48,-24.39 l -11.05,-277.04" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path d="M 254.32,22.7383 C 253.742,8.53906 243.75,-1.64844 232.09,0.21875 L 18.6211,32.7891 C 7.85156,34.4492 -0.480469,46.9414 0.0195313,60.5195 L 36.2617,1000.43 c 0.5196,13.77 9.8281,25.23 20.7813,25.52 l 216.148,4.61 c 11.758,0.37 20.969,-11.22 20.34,-25.64 L 254.32,22.7383" style="fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none" /></g></g></svg><p>JOVD Hart van Brabant · Jongerenorganisatie Vrijheid en Democratie<br>Vragen? <a href="mailto:secretaris@jovdhartvanbrabant.nl">secretaris@jovdhartvanbrabant.nl</a></p></div>
+</footer>
 
 <script>
-(function(){var now=new Date();
-[].forEach.call(document.querySelectorAll('.ev[data-until]'),function(a){if(new Date(a.dataset.until)<now){a.classList.add('past');return}
-  var d=Math.ceil((new Date(a.dataset.date)-now)/864e5),s=a.querySelector('.days');if(s)s.textContent=d<=0?'vandaag':d===1?'morgen':'nog '+d+' dagen'});
-if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});[].forEach.call(document.querySelectorAll('.reveal'),function(el){io.observe(el)})}else [].forEach.call(document.querySelectorAll('.reveal'),function(el){el.classList.add('in')});
+(function(){
+var now=new Date(),D=document;
+function all(s,r){return [].slice.call((r||D).querySelectorAll(s))}
+function dag(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
+all('.ev[data-until]').forEach(function(a){if(new Date(a.getAttribute('data-until'))<now)a.parentNode.removeChild(a)});
+var evs=all('.ev');
+if(!evs.length){var s=D.getElementById('aanmelden');if(s)s.hidden=true}
+evs.forEach(function(a,i){
+  a.classList.toggle('next',i===0);if(i===0){a.classList.remove('rv');a.style.setProperty('--span',Math.max(1,evs.length-1));a.classList.toggle('solo',evs.length===1)}
+  var dd=a.getAttribute('data-date');if(!dd)return;
+  var n=Math.round((dag(new Date(dd))-dag(now))/864e5);
+  var t=n<=0?'vandaag':n===1?'morgen':'nog '+n+' dagen';
+  all('.days',a).forEach(function(s){s.textContent=t});
+  var k=a.querySelector('.dsk');if(k)k.innerHTML=n>1?'<b>'+n+'</b>dagen':'<b class="sm">'+(n<=0?'Vandaag':'Morgen')+'</b>';
+});
+var rv=all('.rv');
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});rv.forEach(function(el){io.observe(el)})}
+else rv.forEach(function(el){el.classList.add('in')});
 })();
 </script>
 </body>
