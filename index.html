@@ -265,15 +265,15 @@ a{-webkit-tap-highlight-color:transparent}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .tile{position:relative;overflow:hidden;min-height:190px;padding:16px 15px 15px;text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .15s,box-shadow .15s}
 .tile b{display:block;font-family:var(--disp);font-weight:900;font-size:21px;line-height:1.05;position:relative}
-.tile span{display:block;font-size:13.5px;line-height:1.35;margin-top:5px;position:relative}
+.tile>span:not([aria-hidden]){display:block;font-size:13.5px;line-height:1.35;margin-top:5px;position:relative}
 .tile:active{transform:translate(3px,3px)}
 .t-agenda{background:var(--blue);color:#fff;box-shadow:6px 6px 0 #00000059;transform:rotate(-1deg)}
-.t-agenda span{color:#eaf3fc}
+.t-agenda>span:not([aria-hidden]){color:#eaf3fc}
 .cal{position:absolute;top:16px;left:15px;width:52px;height:56px;background:#fff;box-shadow:3px 3px 0 var(--ink);transform:rotate(-5deg)}
 .cal:before{content:'';position:absolute;left:0;right:0;top:0;height:15px;background:var(--red)}
 .cal:after{content:'';position:absolute;left:8px;right:8px;top:22px;bottom:8px;background:radial-gradient(circle,var(--ink) 2.2px,transparent 2.6px) 0 0/12px 12px}
 .t-lustrum{background:var(--cream);color:var(--ink);box-shadow:6px 6px 0 var(--ink);transform:rotate(1.2deg)}
-.t-lustrum span{color:#33507f}
+.t-lustrum>span:not([aria-hidden]){color:#33507f}
 .big55{position:absolute;top:-18px;right:-10px;font-family:var(--disp);font-weight:900;font-size:96px;line-height:1;color:var(--red);letter-spacing:-.06em;transform:rotate(-8deg)}
 
 /* ---------- nieuws ---------- */
@@ -284,7 +284,8 @@ a{-webkit-tap-highlight-color:transparent}
 .knip img{width:84px;height:84px;object-fit:cover}
 .knip small{display:block;font-size:11px;font-weight:bold;letter-spacing:.15em;text-transform:uppercase;color:var(--rd)}
 .knip b{display:block;font-family:var(--disp);font-weight:900;font-size:17px;line-height:1.15;margin-top:4px;letter-spacing:-.01em}
-.knip a:active{transform:translate(2px,2px)}
+.knip a{transform:translateZ(0)} /* eigen laag: Chrome tekende de tekst niet na de reveal (filter+clip-path+rotate) */
+.knip a:active{transform:translate(2px,2px) translateZ(0)}
 .allnews{display:inline-flex;align-items:center;gap:10px;min-height:48px;margin-top:20px;color:var(--yellow);font-weight:bold;font-size:17px;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
 
 /* ---------- footer ---------- */
@@ -369,7 +370,7 @@ a{-webkit-tap-highlight-color:transparent}
   .sec{padding-top:80px}
   .tiles{gap:26px}
   .tile{min-height:200px;padding:24px}
-  .tile b{font-size:27px}.tile span{font-size:15px}
+  .tile b{font-size:27px}.tile>span:not([aria-hidden]){font-size:15px}
   .cal{top:24px;left:24px;width:80px;height:86px}
   .cal:before{height:22px}
   .cal:after{top:32px;left:12px;right:12px;bottom:12px;background-size:16px 16px}
@@ -393,7 +394,7 @@ a{-webkit-tap-highlight-color:transparent}
   .tile{min-height:120px}
   .t-agenda{padding-left:86px}
   .big55{font-size:84px;top:-12px}
-  .t-lustrum b,.t-lustrum span{max-width:64%}
+  .t-lustrum b,.t-lustrum>span:not([aria-hidden]){max-width:64%}
 }
 @media (max-width:359px){
   .ev{grid-template-columns:84px minmax(0,1fr)}
